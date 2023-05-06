@@ -37,32 +37,32 @@ Install with [vim-plug](https://github.com/junegunn/vim-plug):
 ```vim
 " If you don't have nodejs and yarn
 " use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
-" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" see: https://github.com/tomtomjhj/markdown-preview.nvim/issues/50
+Plug 'tomtomjhj/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 
 " If you have nodejs and yarn
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'tomtomjhj/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 ```
 
 Or install with [dein](https://github.com/Shougo/dein.vim):
 
 ```vim
-call dein#add('iamcco/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
+call dein#add('tomtomjhj/markdown-preview.nvim', {'on_ft': ['markdown', 'pandoc.markdown', 'rmd'],
 					\ 'build': 'sh -c "cd app && yarn install"' })
 ```
 
 Or with minpac:
 
 ```vim
-call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
+call minpac#add('tomtomjhj/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
 ```
 
 Or with [Vundle](https://github.com/vundlevim/vundle.vim):
 
 Place this in your `.vimrc` or `init.vim`,
 ```vim
-Plugin 'iamcco/markdown-preview.nvim'
+Plugin 'tomtomjhj/markdown-preview.nvim'
 ```
 ... then run the following in vim (to complete the `Plugin` installation):
 ```vim
@@ -78,24 +78,24 @@ Add this in your `init.lua or plugins.lua`
 ```lua
 -- install without yarn or npm
 use({
-    "iamcco/markdown-preview.nvim",
+    "tomtomjhj/markdown-preview.nvim",
     run = function() vim.fn["mkdp#util#install"]() end,
 })
 
-use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+use({ "tomtomjhj/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 ```
 
 Or by hand
 
 ```vim
-use {'iamcco/markdown-preview.nvim'}
+use {'tomtomjhj/markdown-preview.nvim'}
 ```
 
 add plugin in `~/.local/share/nvim/site/pack/packer/start/` directory:
 
 ```vim
 cd ~/.local/share/nvim/site/pack/packer/start/
-git clone https://github.com/iamcco/markdown-preview.nvim.git
+git clone https://github.com/tomtomjhj/markdown-preview.nvim.git
 cd markdown-preview.nvim
 yarn install
 yarn build
@@ -133,7 +133,7 @@ let g:mkdp_open_to_the_world = 0
 
 " use custom IP to open preview page
 " useful when you work in remote vim and preview on local browser
-" more detail see: https://github.com/iamcco/markdown-preview.nvim/pull/9
+" more detail see: https://github.com/tomtomjhj/markdown-preview.nvim/pull/9
 " default empty
 let g:mkdp_open_ip = ''
 
@@ -390,7 +390,7 @@ Answer: set `updatetime` to a small number, for instance: `set updatetime=100`
 *WSL 2 issue*: Can not open browser when using WSL 2 with terminal Vim.
 
 > if you are using Ubuntu you can install xdg-utils using `sudo apt-get install -y xdg-utils`
-> checkout [issue 199](https://github.com/iamcco/markdown-preview.nvim/issues/199) for more detail.
+> checkout [issue 199](https://github.com/tomtomjhj/markdown-preview.nvim/issues/199) for more detail.
 
 Question: How can I change the dark/light theme?
 
@@ -423,7 +423,7 @@ Vim support is powered by [@chemzqm/neovim](https://github.com/neoclide/neovim)
 - [highlight](https://github.com/highlightjs/highlight.js)
 - [neovim/node-client](https://github.com/neovim/node-client)
 - [next.js](https://github.com/zeit/next.js)
-- [markdown.css](https://github.com/iamcco/markdown.css)
+- [markdown.css](https://github.com/tomtomjhj/markdown.css)
 - [markdown-it](https://github.com/markdown-it/markdown-it)
 - [markdown-it-katex](https://github.com/waylonflinn/markdown-it-katex)
 - [markdown-it-plantuml](https://github.com/gmunguia/markdown-it-plantuml)
@@ -435,6 +435,6 @@ Vim support is powered by [@chemzqm/neovim](https://github.com/neoclide/neovim)
 
 ### Buy Me A Coffee ☕️
 
-![btc](https://img.shields.io/keybase/btc/iamcco.svg?style=popout-square)
+![btc](https://img.shields.io/keybase/btc/tomtomjhj.svg?style=popout-square)
 
 ![image](https://user-images.githubusercontent.com/5492542/42771079-962216b0-8958-11e8-81c0-520363ce1059.png)
