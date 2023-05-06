@@ -9,7 +9,7 @@ git tag -f "$tag" -m "Release $tag"
 git push --tags
 
 GH_API="https://api.github.com"
-GH_REPO="$GH_API/repos/iamcco/markdown-preview.nvim"
+GH_REPO="$GH_API/repos/tomtomjhj/markdown-preview.nvim"
 GH_TAGS="$GH_REPO/releases/tags/$tag"
 AUTH="Authorization: token $GITHUB_API_TOKEN"
 
@@ -21,12 +21,10 @@ curl -X POST -H "Authorization: token $GITHUB_API_TOKEN" \
 
 # upload assets
 cd ./app/bin
-tar -zcf markdown-preview-macos.tar.gz markdown-preview-macos-x64
-tar -zcf markdown-preview-macos-arm64.tar.gz markdown-preview-macos-arm64
 tar -zcf markdown-preview-linux.tar.gz markdown-preview-linux
 zip markdown-preview-win.zip markdown-preview-win.exe
 
-declare -a files=("markdown-preview-win.zip" "markdown-preview-macos.tar.gz" "markdown-preview-macos-arm64.tar.gz"  "markdown-preview-linux.tar.gz")
+declare -a files=("markdown-preview-win.zip" "markdown-preview-linux.tar.gz")
 
 # Validate token.
 curl -o /dev/null -sH "$AUTH" $GH_REPO || { echo "Error: Invalid repo, token or network issue!";  exit 1; }
@@ -41,7 +39,7 @@ eval $(echo "$response" | grep -m 1 "id.:" | grep -w id | tr : = | tr -cd '[[:al
 # Upload asset
 for filename in "${files[@]}"
 do
-  GH_ASSET="https://uploads.github.com/repos/iamcco/markdown-preview.nvim/releases/$id/assets?name=$filename"
+  GH_ASSET="https://uploads.github.com/repos/tomtomjhj/markdown-preview.nvim/releases/$id/assets?name=$filename"
   echo "Uploading $filename"
   curl -X POST -H "Authorization: token $GITHUB_API_TOKEN" \
     -H "Content-Type: application/octet-stream" \
