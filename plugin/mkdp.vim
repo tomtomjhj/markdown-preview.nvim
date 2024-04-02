@@ -135,16 +135,12 @@ endfunction
 function! s:init() abort
   augroup mkdp_init
     autocmd!
-    if g:mkdp_command_for_global
-      autocmd BufEnter * :call s:init_command()
-    else
-      autocmd BufEnter,FileType * if index(g:mkdp_filetypes, &filetype) !=# -1 | call s:init_command() | endif
-    endif
+    execute printf('autocmd FileType %s call s:init_command()', g:mkdp_command_for_global ? '*' : join(g:mkdp_filetypes, ','))
     if g:mkdp_auto_start
-      execute 'autocmd BufEnter *.{md,mkd,mdown,mkdn,mdwn,' . join(g:mkdp_filetypes, ',') . '} call mkdp#util#open_preview_page()'
+      execute printf('autocmd FileType %s call mkdp#util#open_preview_page()', join(g:mkdp_filetypes, ','))
     endif
     if g:mkdp_combine_preview && g:mkdp_combine_preview_auto_refresh
-      execute 'autocmd BufEnter *.{md,mkd,mdown,mkdn,mdwn,' . join(g:mkdp_filetypes, ',') . '} call mkdp#util#combine_preview_refresh()'
+      execute printf('autocmd FileType %s call mkdp#util#combine_preview_refresh()', join(g:mkdp_filetypes, ','))
     endif
   augroup END
 endfunction
