@@ -9,9 +9,9 @@
   "private": true,
   "scripts": {
     "watch": "tsc -w -p ./",
-    "build-app": "cd app && rm -rf ./.next && next build && next export",
+    "build-app": "cd app && rm -rf ./.next && next build",
     "build-lib": "tsc -p ./",
-    "build": "tsc -p ./ && cd app && rm -rf ./.next && next build && next export && yarn && pkg --targets node16-linux-x64,node16-macos-x64,node16-win-x64 --out-path ./bin . && rm -rf ./node_modules ./.next"
+    "build": "tsc -p ./ && cd app && rm -rf ./.next && next build && yarn && pkg --targets node16-linux-x64,node16-macos-x64,node16-win-x64 --out-path ./bin . && rm -rf ./node_modules ./.next"
   },
   "dependencies": {
     "@chemzqm/neovim": "^5.7.9",
@@ -29,10 +29,10 @@
     "markdown-it-toc-done-right": "^4.2.0",
     "md-it-meta": "^0.0.2",
     "msgpack-lite": "^0.1.26",
-    "next": "^12.3.4",
+    "next": "^14.2.3",
     "plantuml-encoder": "^1.4.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1"
   },
@@ -45,5 +45,6 @@
     "tslint-plugin-prettier": "^2.3.0",
     "typescript": "^4.6.4",
     "yuuko-tsconfig": "^1.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }
