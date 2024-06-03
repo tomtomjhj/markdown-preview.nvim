@@ -1,5 +1,6 @@
 
 module.exports = {
+  output: 'export',
   pageExtensions: [ 'jsx' ],
   exportPathMap: async function () {
     return {
